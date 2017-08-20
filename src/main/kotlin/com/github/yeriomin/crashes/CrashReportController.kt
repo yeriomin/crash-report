@@ -17,7 +17,6 @@ import java.util.*
 @RestController
 class CrashReportController (val repository:CrashReportRepository) {
 
-
     @ControllerAdvice
     internal class JsonpAdvice : AbstractJsonpResponseBodyAdvice("callback")
 
@@ -29,7 +28,8 @@ class CrashReportController (val repository:CrashReportRepository) {
     @GetMapping("/crashreport")
     fun get(
             @RequestParam(value = "page", defaultValue = "0") page: Int,
+            @RequestParam(value = "pagesize", defaultValue = "20") pageSize: Int,
             @RequestParam(value = "sortcol", defaultValue = "time") sortColumn: String,
             @RequestParam(value = "sortdir", defaultValue = "asc") sortDirection: String
-    ) = repository.findAll(PageRequest(page, 20, Sort((if (sortDirection == "asc") Sort.Direction.ASC else Sort.Direction.DESC), sortColumn)))//.forEach { it.stackTrace = "" }
+    ) = repository.findAll(PageRequest(page, pageSize, Sort((if (sortDirection == "asc") Sort.Direction.ASC else Sort.Direction.DESC), sortColumn)))
 }
