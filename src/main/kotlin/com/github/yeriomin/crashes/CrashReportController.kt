@@ -13,7 +13,6 @@ import org.springframework.web.servlet.mvc.method.annotation.AbstractJsonpRespon
 import org.springframework.web.bind.annotation.ControllerAdvice
 import java.util.*
 
-
 @RestController
 class CrashReportController (val repository:CrashReportRepository) {
 

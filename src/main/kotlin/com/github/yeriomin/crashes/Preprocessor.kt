@@ -55,7 +55,7 @@ class Preprocessor : ApplicationListener<ApplicationReadyEvent> {
                         }
                         previous = newDir.absolutePath
                         thread(start = true) {
-                            Thread.sleep(3000)
+                            Thread.sleep(6000)
                             if (eligible(newDir)) {
                                 save(newDir)
                             }
