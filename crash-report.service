@@ -3,7 +3,7 @@ Description=Yalp Store crash reports
 
 [Service]
 User=user
-WorkingDirectory=/home/kgb/crash-report
+WorkingDirectory=/home/user/crash-report
 ExecStart=/usr/bin/java -jar /home/user/crash-report/build/libs/crash-report.jar
 SuccessExitStatus=0
 TimeoutStopSec=10
