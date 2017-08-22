@@ -1,0 +1,21 @@
+{
+  "short_name": "Crashes",
+  "name": "Yalp Store Crashes",
+  "icons": [
+    {
+      "src": "yalp-store-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "yalp-store-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "orientation": "landscape",
+  "display": "standalone",
+  "theme_color": "#357ec7",
+  "background_color": "#FFFFFF",
+  "start_url": "/index.html"
+}
