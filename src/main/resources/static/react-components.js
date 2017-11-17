@@ -25,7 +25,7 @@ var Content = React.createClass({
         }.bind(this);
         var params = {
             page: state.page,
-            pageSize: state.pageSize
+            pagesize: state.pageSize
         };
         if (state.sorted.length > 0) {
             params.sortcol = state.sorted[0].id;
