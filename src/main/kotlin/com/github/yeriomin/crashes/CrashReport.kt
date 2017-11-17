@@ -11,6 +11,7 @@ data class CrashReport (
         val directoryName: String = "",
         val versionCode: Int = 0,
         val source: String = "",
+        val topic: String = "",
         val deviceName: String = "",
         val userId: String = "",
         @Column(length=4096)

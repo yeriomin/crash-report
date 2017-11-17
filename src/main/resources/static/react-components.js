@@ -34,7 +34,7 @@ var Content = React.createClass({
             params.sortcol = "time";
             params.sortdir = "desc";
         }
-        xhttp.open("GET", getRestUrl("https://yalp-store-crash-reports.duckdns.org", "crashreport", params), true);
+        xhttp.open("GET", getRestUrl("http://localhost:8083", "crashreport", params), true);
         xhttp.send();
     },
     getStaticLink: function(row, type) {
@@ -69,6 +69,7 @@ var Content = React.createClass({
                                 }
                                 return d.getFullYear() + "." + pad(d.getMonth() + 1) + "." + pad(d.getDate()) + " " + pad(d.getHours()) + ":" + pad(d.getMinutes())
                             },
+                            minWidth: 130,
                             maxWidth: 150
                         },
                         {
@@ -79,7 +80,12 @@ var Content = React.createClass({
                         {
                             Header: "Source",
                             accessor: "source",
-                            maxWidth: 100
+                            maxWidth: 70
+                        },
+                        {
+                            Header: "Topic",
+                            accessor: "topic",
+                            maxWidth: 70
                         },
                         {
                             Header: "Device Name",
@@ -98,6 +104,15 @@ var Content = React.createClass({
                                     row.hasLog ? React.createElement("a", {target: "_blank", href: "raw/" + row.directoryName + "/log.txt"}, "Log") : "",
                                     row.hasPreferences ? React.createElement("a", {target: "_blank", href: "raw/" + row.directoryName + "/preferences.txt"}, "Preferences") : ""
                                 );
+                            },
+                            minWidth: 270,
+                            maxWidth: 350
+                        },
+                        {
+                            Header: "Exception",
+                            id: 'stackTrace',
+                            accessor: function (row) {
+                                return row.hasStackTrace ? row.stackTrace.split('\n')[0] : "";
                             },
                             minWidth: 250,
                             maxWidth: 350
