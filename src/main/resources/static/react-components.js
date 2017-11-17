@@ -34,7 +34,7 @@ var Content = React.createClass({
             params.sortcol = "time";
             params.sortdir = "desc";
         }
-        xhttp.open("GET", getRestUrl("http://localhost:8083", "crashreport", params), true);
+        xhttp.open("GET", getRestUrl("https://yalp-store-crash-reports.duckdns.org/", "crashreport", params), true);
         xhttp.send();
     },
     getStaticLink: function(row, type) {
