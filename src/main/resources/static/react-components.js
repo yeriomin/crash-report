@@ -109,22 +109,21 @@ var Content = React.createClass({
                             maxWidth: 350
                         },
                         {
-                            Header: "Exception",
-                            id: 'stackTrace',
-                            accessor: function (row) {
-                                return row.hasStackTrace ? row.stackTrace.split('\n')[0] : "";
-                            },
-                            minWidth: 250,
-                            maxWidth: 350
-                        },
-                        {
                             Header: "User Name",
                             accessor: "userId",
                             maxWidth: 300
                         },
                         {
                             Header: "Message",
-                            accessor: "message",
+                            id: 'message',
+                            accessor: function (row) {
+                                return React.createElement(
+                                   'span',
+                                   {},
+                                   React.createElement("div", {}, row.message),
+                                   row.hasStackTrace ? React.createElement("div", {}, row.stackTrace.split('\n')[0]) : ""
+                               )
+                            },
                             minWidth: 500
                         }
                     ],
