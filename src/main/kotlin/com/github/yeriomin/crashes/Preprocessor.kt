@@ -123,6 +123,8 @@ class Preprocessor : ApplicationListener<ApplicationReadyEvent> {
                 userId = messageLines[0].substring(5).trim().replace("null", "").replace("'", "''")
                 message = messageLines.drop(2).joinToString("\n").substring(8).trim().replace("null", "").replace("'", "''")
             }
+        } else if (versionCode > 20 && source.length == 3) {
+            source = "unknown"
         }
         if (versionCode < 30) {
             if (hasStackTrace) {
