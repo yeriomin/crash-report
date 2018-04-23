@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component
 import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
+import java.io.InputStreamReader
 import java.nio.file.*
 import java.nio.file.StandardWatchEventKinds.ENTRY_CREATE
 import java.nio.file.StandardWatchEventKinds.OVERFLOW
@@ -157,7 +158,7 @@ class Preprocessor : ApplicationListener<ApplicationReadyEvent> {
     fun getProperties(file: File): Properties {
         val properties = Properties()
         try {
-            properties.load(FileInputStream(file))
+            properties.load(InputStreamReader(FileInputStream(file), "UTF-8"))
         } catch (e: IOException) {
             Logger.getLogger(javaClass.name).warning("Could not read message file: " + e.message)
         }
