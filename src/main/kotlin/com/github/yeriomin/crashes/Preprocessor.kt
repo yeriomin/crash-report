@@ -100,7 +100,7 @@ class Preprocessor : ApplicationListener<ApplicationReadyEvent> {
 
     fun getCrashReport(directory: File): CrashReport {
         val explodedName = directory.name.split("-")
-        var versionCode = explodedName[7].split(".")[1].toInt()
+        var versionCode = explodedName[7].split(".")[1].split("-")[0].toInt()
         var deviceName = explodedName.last()
         var source = if (versionCode > 20) explodedName[explodedName.size - 3] else "fdroid"
         val stackTraceFile = File(directory, "stacktrace.txt")
